@@ -34,6 +34,7 @@ const App = () => {
                 src={post.image}
                 alt=""
               />
+              <div style={{fontSize:30}}>{post.date}</div>
               <div style={{fontSize:50}}>{post.title}</div>
             </div>
           ))}
