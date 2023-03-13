@@ -10,5 +10,5 @@ export interface IPost {
   }
 
   export interface IPosts {
-    results:IPost
+    results:IPost[]
   }

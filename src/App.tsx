@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { IPost, IPosts } from "./types/Posts";
 
 const App = () => {
-  const [posts, setPosts] = useState<IPosts>([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetchPosts();
-  });
+  }, []);
 
   async function fetchPosts() {
     try {
@@ -15,7 +15,7 @@ const App = () => {
       const response = await axios.get<IPosts>(
         "https://studapi.teachmeskills.by/blog/posts/?limit=20"
       );
-      setPosts(response.data);
+      setPosts(response.data.results);
       setLoading(false);
     } catch (error) {
       console.log(error);
