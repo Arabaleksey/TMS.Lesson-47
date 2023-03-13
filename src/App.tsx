@@ -26,9 +26,16 @@ const App = () => {
       {loading ? (
         <h1>Loading</h1>
       ) : (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column"}}>
           {posts.map((post) => (
-            <div key={post.id}>{post.image}-{post.title}</div>
+            <div key={post.id}>
+              <img
+                style={{ width: "500px", height: "500px" }}
+                src={post.image}
+                alt=""
+              />
+              <div style={{fontSize:50}}>{post.title}</div>
+            </div>
           ))}
         </div>
       )}
