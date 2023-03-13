@@ -8,3 +8,7 @@ export interface IPost {
     description: string;
     author: number;
   }
+
+  export interface IPosts {
+    results:IPost
+  }

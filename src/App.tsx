@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { IPost } from "./types/Posts";
+import { IPost, IPosts } from "./types/Posts";
 
 const App = () => {
-  const [posts, setPosts] = useState<IPost[]>([]);
+  const [posts, setPosts] = useState<IPosts>([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetchPosts();
@@ -12,7 +12,7 @@ const App = () => {
   async function fetchPosts() {
     try {
       setLoading(true);
-      const response = await axios.get<IPost[]>(
+      const response = await axios.get<IPosts>(
         "https://studapi.teachmeskills.by/blog/posts/?limit=20"
       );
       setPosts(response.data);
@@ -28,9 +28,7 @@ const App = () => {
       ) : (
         <div>
           {posts.map((post) => (
-            <div key={post.id}>
-              {post.image} {post.title}{" "}
-            </div>
+            <div key={post.id}>{post.image}-{post.title}</div>
           ))}
         </div>
       )}
